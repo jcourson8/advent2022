@@ -1,4 +1,5 @@
-total_score = 0
+total_score_first_method = 0
+total_score_second_method = 0
 outcomes = {
     "draw":[0],
     "lose":[-2,1],
@@ -50,8 +51,35 @@ with open('input.txt','r') as file:
         else:
             raise "this should not happen"
         
-        total_score = total_score + round_score
+        ### PART 2 Code ###
 
-print(f'Total Score: {total_score}')
+        outcome = hand
+        round_score_second_method = 0
+
+        if outcome == 0: #lose
+            for i in outcomes['win']: 
+                hand_needed = opponent_hand + i
+                if hand_needed in range(0,3):
+                    round_score_second_method = hand_needed 
+
+        elif outcome == 1: #draw
+            round_score_second_method = opponent_hand + 3
+
+        elif outcome == 2: #win
+            for i in outcomes['lose']: 
+                hand_needed = opponent_hand + i
+                if hand_needed in range(0,3):
+                    round_score_second_method = hand_needed + 6 
+        else:
+            raise "this should not happen"
+
+
+        ###################
+        total_score_second_method = total_score_second_method + round_score_second_method
+        total_score_first_method = total_score_first_method + round_score
+
+print(f'Total Score: {total_score_first_method}')
+print(f'Total Score: {total_score_second_method}')
+
 
  
