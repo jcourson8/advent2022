@@ -63,7 +63,7 @@ with open('input.txt','r') as file:
                     round_score_second_method = hand_needed 
 
         elif outcome == 1: #draw
-            round_score_second_method = opponent_hand + 3
+            round_score_second_method = hand_needed + 3
 
         elif outcome == 2: #win
             for i in outcomes['lose']: 
