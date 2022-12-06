@@ -23,8 +23,8 @@ C - B = 1  (C wins)
 C - C = 0  (C ties)
 
 """
-
-with open('input.txt','r') as file:
+in_file_no_check = input("Input file: ")
+with open(in_file_no_check,'r') as file:
     
     while True:
         line = file.readline()
